@@ -1,0 +1,21 @@
+{
+  "name": "f1-ferrari-video",
+  "version": "1.0.0",
+  "description": "Remotion video - Getting into a Ferrari F1 car",
+  "scripts": {
+    "start": "npx remotion studio",
+    "build": "npx remotion render F1Ferrari out/video.mp4",
+    "upgrade": "npx remotion upgrade"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.420",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "4.0.420",
+    "@remotion/transitions": "4.0.420"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "typescript": "^5.7.0"
+  }
+}
