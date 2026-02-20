@@ -1,0 +1,4 @@
+Imola - F1 Layout by jt1624 on Thingiverse: https://www.thingiverse.com/thing:4628762
+
+Summary:
+I wanted to find a model of Imola to add to my collection as it's one of my favorite tracks, but was disappointed that none were the Grand Prix layout that F1 will use in 2020 as they return to the track for the first time since 2006. I went ahead and made a version without the chicane at Variante Bassa, based on a phenomenal model by BluePotato00. Please go check out the page for their model, they have a link to a pack with a fantastic variety of racetracks from all over the world.Once again, thank you to BluePotato00 for their model to remix, and enjoy! I printed with 20% infill and it worked great, but if you'd like a more robust model I would suggest 100%. I also prefer to print my racetrack models with a brim just in case they decide to pop off the plate, but this shouldn't be necessary.

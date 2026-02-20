@@ -1,0 +1,272 @@
+@import "tailwindcss";
+
+:root {
+  /* Grid Pass — Bright & White Theme */
+  --color-gp-red: #ff1801;
+  --color-gp-red-dark: #cc1200;
+  --color-gp-orange: #ff6b2b;
+  --color-gp-yellow: #ffc107;
+  --color-gp-white: #ffffff;
+  --color-gp-off-white: #f9f9f9;
+  --color-gp-light: #f2f2f2;
+  --color-gp-dark: #111111;
+  --color-gp-dark-soft: #1a1a1a;
+  --color-gp-grey: #666666;
+  --color-gp-grey-light: #999999;
+  --color-gp-border: #e5e5e5;
+
+  --duration-default: 0.75s;
+  --cubic-default: cubic-bezier(0.65, 0.05, 0, 1);
+  --animation-default: var(--duration-default) var(--cubic-default);
+}
+
+@theme inline {
+  --color-background: var(--color-gp-white);
+  --color-foreground: var(--color-gp-dark);
+  --color-brand: var(--color-gp-red);
+  --color-brand-dark: var(--color-gp-red-dark);
+  --color-brand-orange: var(--color-gp-orange);
+  --color-brand-yellow: var(--color-gp-yellow);
+  --color-surface: var(--color-gp-off-white);
+  --color-surface-2: var(--color-gp-light);
+  --color-dark: var(--color-gp-dark);
+  --color-dark-soft: var(--color-gp-dark-soft);
+  --color-muted: var(--color-gp-grey);
+  --color-muted-light: var(--color-gp-grey-light);
+  --color-border: var(--color-gp-border);
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  background: var(--color-gp-white);
+  color: var(--color-gp-dark);
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-feature-settings: "ss01", "ss02", "cv01";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ── 2026 Typography System ── */
+
+/* Display font for headings — Open Sans */
+.font-display {
+  font-family: var(--font-body), system-ui, sans-serif;
+  letter-spacing: -0.01em;
+}
+
+/* Fluid type scale — viewport-aware sizing */
+.text-fluid-xs {
+  font-size: clamp(0.7rem, 0.6rem + 0.25vw, 0.85rem);
+}
+.text-fluid-sm {
+  font-size: clamp(0.8rem, 0.7rem + 0.3vw, 1rem);
+}
+.text-fluid-base {
+  font-size: clamp(0.9rem, 0.8rem + 0.35vw, 1.125rem);
+}
+.text-fluid-lg {
+  font-size: clamp(1.1rem, 0.9rem + 0.5vw, 1.5rem);
+}
+.text-fluid-xl {
+  font-size: clamp(1.4rem, 1rem + 1vw, 2.25rem);
+}
+.text-fluid-2xl {
+  font-size: clamp(1.8rem, 1.2rem + 1.5vw, 3rem);
+}
+.text-fluid-3xl {
+  font-size: clamp(2.2rem, 1.5rem + 2.5vw, 4.5rem);
+}
+.text-fluid-4xl {
+  font-size: clamp(2.8rem, 1.8rem + 3.5vw, 6rem);
+}
+.text-fluid-display {
+  font-size: clamp(3.5rem, 2rem + 5vw, 9rem);
+}
+
+/* Tracking for display headings */
+.tracking-display {
+  letter-spacing: -0.01em;
+}
+
+/* Optical sizing */
+.tracking-optical {
+  letter-spacing: 0.01em;
+}
+
+/* Label / overline style */
+.type-overline {
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: clamp(0.625rem, 0.55rem + 0.2vw, 0.75rem);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+/* Kinetic text — subtle animation for hover/scroll reveals */
+@keyframes text-shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.text-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--color-gp-dark) 0%,
+    var(--color-gp-red) 45%,
+    var(--color-gp-orange) 55%,
+    var(--color-gp-dark) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: text-shimmer 4s linear infinite;
+}
+
+/* Stacked text effect — for massive display type */
+.text-stroke {
+  -webkit-text-stroke: 1.5px var(--color-gp-dark);
+  -webkit-text-fill-color: transparent;
+}
+
+.text-stroke-white {
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.3);
+  -webkit-text-fill-color: transparent;
+}
+
+/* Variable font weight animation */
+@keyframes font-weight-breathe {
+  0%, 100% { font-weight: 400; }
+  50% { font-weight: 700; }
+}
+
+/* Monospace accent for numbers/stats */
+.type-mono {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum", "ss01";
+}
+
+::selection {
+  background: var(--color-gp-red);
+  color: white;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-gp-red), var(--color-gp-orange));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Split-text clip mask (landonorris.com style) */
+.clip-text-line {
+  clip-path: polygon(0 -2%, 100% -2%, 100% 105%, 0 105%);
+  display: inline-block;
+  overflow: hidden;
+}
+
+/* Hero text responsive base size — scale transform makes it larger */
+.hero-text-base {
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: clamp(3.5rem, 8vw, 8rem);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+}
+
+/* GPU layer hint for scroll-animated elements */
+.will-transform {
+  will-change: transform, opacity;
+}
+
+/* Hide Unicorn Studio branding badge */
+[data-us-project] a[href*="unicorn"],
+[data-us-project] a[href*="Unicorn"],
+[data-us-project] > a,
+[data-us-project] [class*="badge"],
+[data-us-project] [class*="watermark"],
+[data-us-project] [class*="brand"],
+[data-us-project] [class*="logo"],
+.unicorn-studio-badge,
+div[style*="unicornstudio"] a,
+iframe[src*="unicorn"] ~ div a {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* ── Liquid Glass Navbar ── */
+.liquid-glass-nav {
+  will-change: transform, backdrop-filter;
+  transform: translateZ(0);
+}
+
+/* Prismatic refraction — subtle rainbow caustic on the glass surface */
+.liquid-glass-refraction {
+  background:
+    linear-gradient(
+      105deg,
+      transparent 20%,
+      rgba(255, 255, 255, 0.06) 30%,
+      rgba(200, 220, 255, 0.04) 38%,
+      rgba(255, 200, 200, 0.03) 42%,
+      rgba(200, 255, 220, 0.03) 48%,
+      rgba(200, 200, 255, 0.04) 55%,
+      rgba(255, 255, 255, 0.06) 65%,
+      transparent 80%
+    );
+  mix-blend-mode: overlay;
+  opacity: 0.7;
+  animation: liquid-shimmer 8s ease-in-out infinite;
+}
+
+@keyframes liquid-shimmer {
+  0%, 100% {
+    opacity: 0.5;
+    transform: translateX(-2%) scaleX(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateX(2%) scaleX(1.02);
+  }
+}
+
+/* ── Hero Glass Info Boxes ── */
+.hero-glass-box {
+  backdrop-filter: blur(16px) saturate(1.6);
+  -webkit-backdrop-filter: blur(16px) saturate(1.6);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0.04) 50%,
+    rgba(255, 255, 255, 0.06) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    inset 0 0.5px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -0.5px 0 rgba(255, 255, 255, 0.04),
+    0 8px 32px rgba(0, 0, 0, 0.12),
+    0 2px 8px rgba(0, 0, 0, 0.06);
+}

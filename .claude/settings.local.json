@@ -22,7 +22,12 @@
       "Bash(npx next build:*)",
       "Bash(npm run build:*)",
       "Bash(npm ls:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(git commit:*)",
+      "Bash(git remote set-url:*)",
+      "Bash(git push:*)",
+      "Bash(git ls-tree:*)",
+      "Bash(git add:*)"
     ]
   }
 }
